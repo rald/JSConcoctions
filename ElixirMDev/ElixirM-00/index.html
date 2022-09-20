@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>ElixirM</title>
+		<style>
+			html, body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+
+		<canvas id="canvas"></canvas>
+
+		<script>
+
+
+
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+
+// set canvas size to window size
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// fill background with black
+ctx.fillStyle = "#000000";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.fillStyle="#FFFFFF";
+ctx.font="16px monospace";
+ctx.fillText(canvas.width+"x"+canvas.height,32,32);
+
+// draw a green line
+ctx.beginPath();
+ctx.strokeStyle = "#00FF00";
+ctx.moveTo(25, 25);
+ctx.lineTo(75, 75);
+ctx.stroke();
+ctx.closePath();
+
+// draw a green rectangle
+ctx.beginPath();
+ctx.strokeStyle = "#00FF00";
+ctx.rect(100, 25, 50, 50);
+ctx.stroke();
+ctx.closePath();
+
+// draw a green circle
+ctx.beginPath();
+ctx.strokeStyle = "#00FF00";
+ctx.arc(200, 50, 25, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.closePath();
+
+// fill a green rectangle
+ctx.beginPath();
+ctx.fillStyle = "#00FF00";
+ctx.rect(100, 100, 50, 50);
+ctx.fill();
+ctx.closePath();
+
+// fill a green circle
+ctx.beginPath();
+ctx.fillStyle = "#00FF00";
+ctx.arc(200, 125, 25, 0, 2 * Math.PI);
+ctx.fill();
+ctx.closePath();
+
+// draw a house
+var x=canvas.width/2;
+var y=canvas.height/2;
+ctx.beginPath();
+ctx.strokeStyle = "#00FF00";
+ctx.moveTo(x,y-=100);
+ctx.lineTo(x+=50,y+=50);
+ctx.lineTo(x,y+=50);
+ctx.lineTo(x-=100,y);
+ctx.lineTo(x,y-=50);
+ctx.lineTo(x+50,y-=50);
+ctx.stroke();
+ctx.closePath();
+
+		</script>
+
+	</body>
+</html>

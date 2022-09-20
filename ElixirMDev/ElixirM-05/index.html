@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>ElixirM</title>
+		<style>
+			html, body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+
+		<canvas id="canvas"></canvas>
+
+		<script>
+
+
+
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var SCREEN_WIDTH=240;
+var SCREEN_HEIGHT=320;
+
+var width=16;
+var height=16;
+var size=12;
+
+var screenOffsetX=(canvas.width-SCREEN_WIDTH)/2;
+var screenOffsetY=0;
+
+var gridOffsetX=(SCREEN_WIDTH-width*size)/2+screenOffsetX;
+var gridOffsetY=screenOffsetY+size;
+
+ctx.fillStyle = "#808080";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle = "#000000";
+ctx.fillRect(screenOffsetX, screenOffsetY, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+ctx.strokeStyle="#00FF00";
+for(var j=0;j<height;j++) {
+	for(var i=0;i<width;i++) {
+		ctx.strokeRect(i*size+gridOffsetX,j*size+gridOffsetY,size,size);
+	}
+}
+
+ctx.fillStyle="#FFFFFF";
+ctx.font="32px monospace";
+ctx.fillText(canvas.width+"x"+canvas.height,16,32);
+
+		</script>
+
+	</body>
+</html>
